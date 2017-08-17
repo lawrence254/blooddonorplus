@@ -33,7 +33,7 @@ import okhttp3.Response;
 
 public class BloodBanksTabFragment extends Fragment {
 
-	private static final String TAG = "Adapter";
+	private static final String TAG = "Server Connection";
 	private RecyclerView recyclerView;
 	private LinearLayoutManager layoutManager;
 	private BloodBanksAdapter adapter;
@@ -76,21 +76,25 @@ public class BloodBanksTabFragment extends Fragment {
 						.build();
 				try {
 					Response response = client.newCall(request).execute();
-					JSONArray array = new JSONArray(response.body().string());
+					String Json=response.body().string();
+					JSONObject jobject=new JSONObject(Json);
+					JSONArray array=jobject.getJSONArray("result");
 
 					for (int i = 0; i < array.length(); i++) {
 						JSONObject object = array.getJSONObject(i);
 						Hospital data =
 								new Hospital(object.getInt("id"), object.getString("hospName"), object.getString("contact"));
 						data_List.add(data);
+						Log.i("Fetching...", "doInBackground: process running");
 					}
 
 				} catch (IOException e) {
 					e.printStackTrace();
 				} catch (JSONException e) {
+					e.printStackTrace();
 					System.out.println("No More Hospitals");
 				}
-				Log.e(TAG, "I'm not running");
+				Log.e(TAG,"I'm Not Working" );
 				return null;
 			}
 

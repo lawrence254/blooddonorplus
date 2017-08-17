@@ -5,59 +5,59 @@
 		android:orientation="vertical"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent">
-	
+
 	<android.support.v7.widget.CardView
-			android:id="@+id/cdBanks"
-			android:layout_width="329dp"
-			android:layout_height="137dp"
-			android:layout_marginBottom="8dp"
-			android:layout_marginEnd="8dp"
-			android:layout_marginRight="8dp"
-			android:layout_marginStart="8dp"
-			android:layout_marginTop="8dp"
-			
-			app:layout_constraintBottom_toBottomOf="parent"
-			app:layout_constraintRight_toRightOf="parent"
-			app:layout_constraintTop_toTopOf="parent"
-			app:layout_constraintVertical_bias="0.022"
-			android:layout_marginLeft="8dp"
-			app:layout_constraintLeft_toLeftOf="parent">
-		
+		android:id="@+id/cdBanks"
+		android:layout_width="wrap_content"
+		android:layout_height="137dp"
+		android:layout_marginBottom="8dp"
+		android:layout_marginEnd="8dp"
+		android:layout_marginLeft="8dp"
+		android:layout_marginRight="8dp"
+		android:layout_marginStart="8dp"
+
+		android:layout_marginTop="8dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintLeft_toLeftOf="parent"
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintVertical_bias="0.022">
+
 		<RelativeLayout
-				android:layout_width="337dp"
-				android:layout_height="wrap_content">
-			
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent">
+
 			<ImageView
-					android:id="@+id/hospPhoto"
-					android:layout_width="148dp"
-					android:layout_height="wrap_content"
-					android:src="@drawable/contacts_icon" />
-			
+				android:id="@+id/hospPhoto"
+				android:layout_width="148dp"
+				android:layout_height="wrap_content"
+				android:src="@drawable/contacts_icon" />
+
 			<TextView
-					android:id="@+id/hosp"
-					android:layout_width="195dp"
-					android:layout_height="wrap_content"
-					android:layout_toRightOf="@+id/hospPhoto"
-					android:textSize="26sp"
-					tools:layout_editor_absoluteX="256dp"
-					tools:layout_editor_absoluteY="16dp" />
-			
+				android:id="@+id/hosp"
+				android:layout_width="195dp"
+				android:layout_height="wrap_content"
+				android:layout_toRightOf="@+id/hospPhoto"
+				android:textSize="18sp"
+				tools:layout_editor_absoluteX="256dp"
+				tools:layout_editor_absoluteY="16dp" />
+
 			<TextView
-					android:id="@+id/contact"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_below="@+id/hosp"
-					android:layout_toRightOf="@+id/hospPhoto" />
-			
+				android:id="@+id/contact"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_below="@+id/hosp"
+				android:layout_toRightOf="@+id/hospPhoto" />
+
 			<TextView
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_below="@+id/contact"
-					android:layout_toRightOf="@+id/hospPhoto"
-					android:text="Blood Units: " />
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_below="@+id/contact"
+				android:layout_toRightOf="@+id/hospPhoto"
+				android:text="Blood Units: " />
 		</RelativeLayout>
-	
-	
+
+
 	</android.support.v7.widget.CardView>
 
 </LinearLayout>
