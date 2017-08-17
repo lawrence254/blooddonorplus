@@ -1,0 +1,103 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cvMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="layout.BioData">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="153dp"
+        android:layout_height="132dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/donor_picture"
+        android:scaleType="fitXY"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/contacts_icon"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <EditText
+        android:id="@+id/etFname"
+        android:layout_width="160dp"
+        android:layout_height="42dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="0dp"
+        android:editable="false"
+        android:ems="10"
+        android:hint="John"
+        android:inputType="none"
+        app:layout_constraintLeft_toRightOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/etLname"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="52dp"
+        android:editable="false"
+        android:ems="10"
+        android:hint="Doe"
+        android:inputType="none"
+        app:layout_constraintLeft_toRightOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/etGender"
+        android:layout_width="160dp"
+        android:layout_height="39dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="101dp"
+        android:editable="false"
+        android:ems="10"
+        android:hint="Male"
+        android:inputType="none"
+        app:layout_constraintLeft_toRightOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/etBGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="24dp"
+        android:editable="false"
+        android:ems="10"
+        android:hint="B+"
+        android:inputType="none"
+        app:layout_constraintLeft_toLeftOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/etLast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="62dp"
+        android:editable="false"
+        android:ems="10"
+        android:hint="10/9/2016"
+        android:inputType="none"
+        app:layout_constraintLeft_toLeftOf="@+id/etBGroup"
+        app:layout_constraintTop_toTopOf="@+id/etBGroup" />
+
+    <EditText
+        android:id="@+id/etNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="126dp"
+        android:editable="false"
+        android:ems="10"
+        android:hint="5/1/2017"
+        android:inputType="none"
+        app:layout_constraintLeft_toLeftOf="@+id/etBGroup"
+        app:layout_constraintTop_toTopOf="@+id/etBGroup" />
+
+</android.support.constraint.ConstraintLayout>
