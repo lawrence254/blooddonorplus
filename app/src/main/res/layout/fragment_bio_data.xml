@@ -1,11 +1,13 @@
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-		xmlns:app="http://schemas.android.com/apk/res-auto"
-		xmlns:tools="http://schemas.android.com/tools"
-		android:id="@+id/cvMain"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
 		tools:context="layout.BioData">
-	
+
+	<android.support.constraint.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
 	<!-- TODO: Update blank fragment layout -->
 	
 	<ImageView
@@ -18,86 +20,149 @@
 			android:scaleType="fitXY"
 			app:layout_constraintLeft_toLeftOf="parent"
 			app:layout_constraintTop_toTopOf="parent"
-			app:srcCompat="@drawable/contacts_icon"
+			app:srcCompat="@drawable/bloodhand"
 			tools:layout_constraintLeft_creator="1"
-			tools:layout_constraintTop_creator="1" />
-	
-	<EditText
-			android:id="@+id/etFname"
-			android:layout_width="160dp"
-			android:layout_height="42dp"
-			android:layout_marginLeft="30dp"
-			android:layout_marginTop="0dp"
-			android:editable="false"
-			android:ems="10"
-			android:hint="John"
-			android:inputType="none"
-			app:layout_constraintLeft_toRightOf="@+id/imageView"
-			app:layout_constraintTop_toTopOf="@+id/imageView" />
-	
-	<EditText
-			android:id="@+id/etLname"
-			android:layout_width="160dp"
-			android:layout_height="40dp"
-			android:layout_marginLeft="30dp"
-			android:layout_marginTop="52dp"
-			android:editable="false"
-			android:ems="10"
-			android:hint="Doe"
-			android:inputType="none"
-			app:layout_constraintLeft_toRightOf="@+id/imageView"
-			app:layout_constraintTop_toTopOf="@+id/imageView" />
-	
-	<EditText
-			android:id="@+id/etGender"
-			android:layout_width="160dp"
-			android:layout_height="39dp"
-			android:layout_marginLeft="30dp"
-			android:layout_marginTop="101dp"
-			android:editable="false"
-			android:ems="10"
-			android:hint="Male"
-			android:inputType="none"
-			app:layout_constraintLeft_toRightOf="@+id/imageView"
-			app:layout_constraintTop_toTopOf="@+id/imageView" />
-	
-	<EditText
-			android:id="@+id/etBGroup"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="0dp"
-			android:layout_marginTop="24dp"
-			android:editable="false"
-			android:ems="10"
-			android:hint="B+"
-			android:inputType="none"
-			app:layout_constraintLeft_toLeftOf="@+id/imageView"
-			app:layout_constraintTop_toBottomOf="@+id/imageView" />
-	
-	<EditText
-			android:id="@+id/etLast"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="0dp"
-			android:layout_marginTop="62dp"
-			android:editable="false"
-			android:ems="10"
-			android:hint="10/9/2016"
-			android:inputType="none"
-			app:layout_constraintLeft_toLeftOf="@+id/etBGroup"
-			app:layout_constraintTop_toTopOf="@+id/etBGroup" />
-	
-	<EditText
-			android:id="@+id/etNext"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="0dp"
-			android:layout_marginTop="126dp"
-			android:editable="false"
-			android:ems="10"
-			android:hint="5/1/2017"
-			android:inputType="none"
-			app:layout_constraintLeft_toLeftOf="@+id/etBGroup"
-			app:layout_constraintTop_toTopOf="@+id/etBGroup" />
+			tools:layout_constraintTop_creator="1"
+		android:layout_marginRight="8dp"
+		app:layout_constraintRight_toRightOf="parent" />
+
+	<TextView
+		android:text="First Name"
+		android:layout_width="147dp"
+		android:layout_height="24dp"
+		app:layout_constraintTop_toTopOf="@+id/imageView"
+		android:layout_marginTop="139dp"
+		android:layout_marginBottom="0dp"
+		app:layout_constraintBottom_toTopOf="@+id/etFname"
+		android:layout_marginLeft="8dp"
+		app:layout_constraintLeft_toLeftOf="parent"
+		android:layout_marginRight="8dp"
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintHorizontal_bias="0.04"
+		app:layout_constraintVertical_bias="1.0" />
+
+	<TextView
+		android:id="@+id/etFname"
+		android:layout_width="311dp"
+		android:layout_height="45dp"
+		android:layout_marginRight="33dp"
+		android:layout_marginTop="157dp"
+		android:inputType="none"
+		android:textSize="18sp"
+		android:textStyle="bold"
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+	<TextView
+		android:text="Last Name"
+		android:layout_width="147dp"
+		android:layout_height="24dp"
+		app:layout_constraintTop_toTopOf="@+id/imageView"
+		android:layout_marginTop="139dp"
+		android:layout_marginBottom="0dp"
+		app:layout_constraintBottom_toTopOf="@+id/etLname"
+		android:layout_marginLeft="8dp"
+		app:layout_constraintLeft_toLeftOf="parent"
+		android:layout_marginRight="8dp"
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintHorizontal_bias="0.04"
+		app:layout_constraintVertical_bias="1.0" />
+
+	<TextView
+		android:id="@+id/etLname"
+		android:layout_width="311dp"
+		android:layout_height="49dp"
+		android:layout_marginLeft="8dp"
+		android:layout_marginRight="39dp"
+		android:layout_marginTop="215dp"
+		android:inputType="none"
+		android:textSize="18sp"
+		android:textStyle="bold"
+		app:layout_constraintHorizontal_bias="0.347"
+		app:layout_constraintLeft_toLeftOf="@+id/etFname"
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+	<TextView
+		android:text="Your Gender"
+		android:layout_width="147dp"
+		android:layout_height="24dp"
+		app:layout_constraintTop_toTopOf="@+id/imageView"
+		android:layout_marginTop="139dp"
+		android:layout_marginBottom="0dp"
+		app:layout_constraintBottom_toTopOf="@+id/etGender"
+		android:layout_marginLeft="8dp"
+		app:layout_constraintLeft_toLeftOf="parent"
+		android:layout_marginRight="8dp"
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintHorizontal_bias="0.04"
+		app:layout_constraintVertical_bias="1.0" />
+
+	<TextView
+		android:id="@+id/etGender"
+		android:layout_width="311dp"
+		android:layout_height="41dp"
+		android:layout_marginRight="33dp"
+		android:layout_marginTop="281dp"
+		android:inputType="none"
+		android:textSize="18sp"
+		android:textStyle="bold"
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+	<TextView
+		android:text="Your Blood Group"
+		android:layout_width="147dp"
+		android:layout_height="24dp"
+		app:layout_constraintTop_toTopOf="@+id/imageView"
+		android:layout_marginTop="139dp"
+		android:layout_marginBottom="0dp"
+		app:layout_constraintBottom_toTopOf="@+id/etBGroup"
+		android:layout_marginLeft="8dp"
+		app:layout_constraintLeft_toLeftOf="parent"
+		android:layout_marginRight="8dp"
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintHorizontal_bias="0.04"
+		app:layout_constraintVertical_bias="1.0" />
+
+	<TextView
+		android:id="@+id/etBGroup"
+		android:layout_width="311dp"
+		android:layout_height="40dp"
+		android:layout_marginRight="31dp"
+		android:layout_marginTop="200dp"
+		android:inputType="none"
+		android:textSize="18sp"
+		android:textStyle="bold"
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+	<TextView
+		android:text="Your Email"
+		android:layout_width="147dp"
+		android:layout_height="24dp"
+		app:layout_constraintTop_toTopOf="@+id/imageView"
+		android:layout_marginTop="139dp"
+		android:layout_marginBottom="0dp"
+		app:layout_constraintBottom_toTopOf="@+id/etEmail"
+		android:layout_marginLeft="8dp"
+		app:layout_constraintLeft_toLeftOf="parent"
+		android:layout_marginRight="8dp"
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintHorizontal_bias="0.04"
+		app:layout_constraintVertical_bias="1.0" />
+
+	<TextView
+		android:id="@+id/etEmail"
+		android:layout_width="311dp"
+		android:layout_height="43dp"
+		android:layout_marginRight="33dp"
+		android:layout_marginTop="398dp"
+		android:inputType="none"
+		android:textSize="18sp"
+		android:textStyle="bold"
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
+</ScrollView>

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -39,6 +40,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder> {
 		holder.hospName.setText(my_data.get(position).getHospName());
 		holder.contact.setText(my_data.get(position).getContact());
 
+
 	}
 
 	@Override
@@ -57,6 +59,14 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder> {
 
 			hospName = (TextView)itemView.findViewById(R.id.hosp);
 			contact = (TextView)itemView.findViewById(R.id.contact);
+
+            //Handling on click events
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+					Toast.makeText(context,"The Item Clicked is: "+getAdapterPosition(), Toast.LENGTH_SHORT).show();
+				}
+            });
 		}
 	}
 }

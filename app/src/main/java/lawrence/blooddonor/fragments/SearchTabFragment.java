@@ -8,9 +8,7 @@ import android.view.ViewGroup;
 
 import lawrence.blooddonor.R;
 
-/**
- * Created by dubdabasoduba on 17/08/2017.
- */
+
 
 public class SearchTabFragment extends Fragment {
 	@Override

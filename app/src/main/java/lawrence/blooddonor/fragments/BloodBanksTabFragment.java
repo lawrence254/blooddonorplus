@@ -12,6 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.iid.FirebaseInstanceId;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,12 +30,11 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-/**
- * Created by dubdabasoduba on 17/08/2017.
- */
+
 
 public class BloodBanksTabFragment extends Fragment {
 
+    private FirebaseAnalytics mFirebaseAnalytics;
 	private static final String TAG = "Server Connection";
 	private RecyclerView recyclerView;
 	private LinearLayoutManager layoutManager;
@@ -42,8 +44,10 @@ public class BloodBanksTabFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+        // Obtain the FirebaseAnalytics instance.
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(getContext());
 	}
+
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -85,7 +89,7 @@ public class BloodBanksTabFragment extends Fragment {
 						Hospital data =
 								new Hospital(object.getInt("id"), object.getString("hospName"), object.getString("contact"));
 						data_List.add(data);
-						Log.i("Fetching...", "doInBackground: process running");
+						Log.i("Fetching...", "Blood Banks");
 					}
 
 				} catch (IOException e) {
@@ -111,5 +115,7 @@ public class BloodBanksTabFragment extends Fragment {
 			}
 		};
 		task.execute(id);
+
 	}
+
 }

@@ -3,7 +3,7 @@
  * URL: www.androidhive.info
  * twitter: http://twitter.com/ravitamada
  */
-package info.androidhive.loginandregistration.activity;
+package lawrence.blooddonor.activities;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -26,11 +26,14 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-import info.androidhive.loginandregistration.R;
-import info.androidhive.loginandregistration.app.AppConfig;
-import info.androidhive.loginandregistration.app.AppController;
-import info.androidhive.loginandregistration.helper.SQLiteHandler;
-import info.androidhive.loginandregistration.helper.SessionManager;
+import lawrence.blooddonor.R;
+
+
+import lawrence.blooddonor.helper.SQLiteHandler;
+import lawrence.blooddonor.helper.SessionManager;
+import lawrence.blooddonor.models.AppConfig;
+import lawrence.blooddonor.models.AppController;
+
 
 public class LoginActivity extends Activity {
     private static final String TAG = RegisterActivity.class.getSimpleName();
@@ -46,7 +49,6 @@ public class LoginActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
         btnLogin = (Button) findViewById(R.id.btnLogin);
@@ -136,13 +138,16 @@ public class LoginActivity extends Activity {
                         String uid = jObj.getString("uid");
 
                         JSONObject user = jObj.getJSONObject("user");
-                        String name = user.getString("name");
+                        String fname = user.getString("fname");
+                        String lname = user.getString("lname");
+                        String sex = user.getString("sex");
+                        String blood = user.getString("blood");
                         String email = user.getString("email");
                         String created_at = user
                                 .getString("created_at");
 
                         // Inserting row in users table
-                        db.addUser(name, email, uid, created_at);
+                        db.addUser(fname,lname, email,sex,blood, uid, created_at);
 
                         // Launch main activity
                         Intent intent = new Intent(LoginActivity.this,

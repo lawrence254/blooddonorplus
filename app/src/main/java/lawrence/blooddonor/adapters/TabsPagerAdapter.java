@@ -8,9 +8,7 @@ import lawrence.blooddonor.fragments.SearchTabFragment;
 import lawrence.blooddonor.fragments.BioDataTabFragment;
 import lawrence.blooddonor.fragments.BloodBanksTabFragment;
 
-/**
- * Created by dubdabasoduba on 17/08/2017.
- */
+
 
 public class TabsPagerAdapter extends FragmentStatePagerAdapter {
 

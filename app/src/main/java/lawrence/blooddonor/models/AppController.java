@@ -1,4 +1,4 @@
-package info.androidhive.loginandregistration.app;
+package lawrence.blooddonor.models;
 
 import android.app.Application;
 import android.text.TextUtils;
