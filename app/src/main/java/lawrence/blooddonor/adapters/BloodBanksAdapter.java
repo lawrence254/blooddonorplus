@@ -58,8 +58,8 @@ public class BloodBanksAdapter extends RecyclerView.Adapter<BloodBanksAdapter.Vi
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent=new Intent(v.getContext(), CardData.class);
-                    v.getContext().startActivity(intent);
+//                    Intent intent=new Intent(v.getContext(), CardData.class);
+//                    v.getContext().startActivity(intent);
                     Toast.makeText(context,"The Item Clicked is: "+getAdapterPosition(), Toast.LENGTH_SHORT).show();
                 }
             });

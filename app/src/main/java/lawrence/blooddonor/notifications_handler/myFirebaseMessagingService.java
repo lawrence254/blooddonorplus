@@ -2,20 +2,23 @@ package lawrence.blooddonor.notifications_handler;
 
 import android.content.Intent;
 import android.util.Log;
+
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import lawrence.blooddonor.activities.MainActivity;
+
 /**
  * Created by EliteBook on 10/9/2017.
  */
 
-public class FirebaseMessagingService extends FirebaseMessagingService {
+public class myFirebaseMessagingService extends FirebaseMessagingService {
     private static final String TAG="FirebaseMessageService";
 
-    @Override
+//    @Override (This doesn't seem to work. to be tested in a real environment)
     public void onMessageRecieved(RemoteMessage remoteMessage){
         if(remoteMessage.getData().size()>0){
             Log.e(TAG, "Data Payload: "+remoteMessage.getData().toString() );

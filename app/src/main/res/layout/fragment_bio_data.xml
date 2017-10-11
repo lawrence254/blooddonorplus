@@ -38,20 +38,23 @@
 		app:layout_constraintLeft_toLeftOf="parent"
 		android:layout_marginRight="8dp"
 		app:layout_constraintRight_toRightOf="parent"
-		app:layout_constraintHorizontal_bias="0.04"
+		app:layout_constraintHorizontal_bias="0.16"
 		app:layout_constraintVertical_bias="1.0" />
 
 	<TextView
 		android:id="@+id/etFname"
 		android:layout_width="311dp"
 		android:layout_height="45dp"
-		android:layout_marginRight="33dp"
-		android:layout_marginTop="157dp"
+		android:layout_marginTop="161dp"
 		android:inputType="none"
 		android:textSize="18sp"
 		android:textStyle="bold"
+		app:layout_constraintTop_toTopOf="@+id/imageView"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+		android:layout_marginRight="8dp"
 		app:layout_constraintRight_toRightOf="parent"
-		app:layout_constraintTop_toTopOf="@+id/imageView" />
+		app:layout_constraintHorizontal_bias="0.333" />
 
 	<TextView
 		android:text="Last Name"
@@ -65,23 +68,23 @@
 		app:layout_constraintLeft_toLeftOf="parent"
 		android:layout_marginRight="8dp"
 		app:layout_constraintRight_toRightOf="parent"
-		app:layout_constraintHorizontal_bias="0.04"
+		app:layout_constraintHorizontal_bias="0.16"
 		app:layout_constraintVertical_bias="1.0" />
 
 	<TextView
 		android:id="@+id/etLname"
 		android:layout_width="311dp"
 		android:layout_height="49dp"
-		android:layout_marginLeft="8dp"
-		android:layout_marginRight="39dp"
-		android:layout_marginTop="215dp"
+		android:layout_marginTop="232dp"
 		android:inputType="none"
 		android:textSize="18sp"
 		android:textStyle="bold"
-		app:layout_constraintHorizontal_bias="0.347"
-		app:layout_constraintLeft_toLeftOf="@+id/etFname"
+		app:layout_constraintTop_toTopOf="@+id/imageView"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+		android:layout_marginRight="8dp"
 		app:layout_constraintRight_toRightOf="parent"
-		app:layout_constraintTop_toTopOf="@+id/imageView" />
+		app:layout_constraintHorizontal_bias="0.333" />
 
 	<TextView
 		android:text="Your Gender"
@@ -95,20 +98,23 @@
 		app:layout_constraintLeft_toLeftOf="parent"
 		android:layout_marginRight="8dp"
 		app:layout_constraintRight_toRightOf="parent"
-		app:layout_constraintHorizontal_bias="0.04"
+		app:layout_constraintHorizontal_bias="0.16"
 		app:layout_constraintVertical_bias="1.0" />
 
 	<TextView
 		android:id="@+id/etGender"
 		android:layout_width="311dp"
 		android:layout_height="41dp"
-		android:layout_marginRight="33dp"
-		android:layout_marginTop="281dp"
+		android:layout_marginTop="291dp"
 		android:inputType="none"
 		android:textSize="18sp"
 		android:textStyle="bold"
+		app:layout_constraintTop_toTopOf="@+id/imageView"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+		android:layout_marginRight="8dp"
 		app:layout_constraintRight_toRightOf="parent"
-		app:layout_constraintTop_toTopOf="@+id/imageView" />
+		app:layout_constraintHorizontal_bias="0.333" />
 
 	<TextView
 		android:text="Your Blood Group"
@@ -122,20 +128,23 @@
 		app:layout_constraintLeft_toLeftOf="parent"
 		android:layout_marginRight="8dp"
 		app:layout_constraintRight_toRightOf="parent"
-		app:layout_constraintHorizontal_bias="0.04"
+		app:layout_constraintHorizontal_bias="0.16"
 		app:layout_constraintVertical_bias="1.0" />
 
 	<TextView
 		android:id="@+id/etBGroup"
 		android:layout_width="311dp"
 		android:layout_height="40dp"
-		android:layout_marginRight="31dp"
-		android:layout_marginTop="200dp"
+		android:layout_marginRight="8dp"
+		android:layout_marginTop="210dp"
 		android:inputType="none"
 		android:textSize="18sp"
 		android:textStyle="bold"
 		app:layout_constraintRight_toRightOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/imageView" />
+		app:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+		app:layout_constraintHorizontal_bias="0.333" />
 
 	<TextView
 		android:text="Your Email"
@@ -149,20 +158,23 @@
 		app:layout_constraintLeft_toLeftOf="parent"
 		android:layout_marginRight="8dp"
 		app:layout_constraintRight_toRightOf="parent"
-		app:layout_constraintHorizontal_bias="0.04"
+		app:layout_constraintHorizontal_bias="0.16"
 		app:layout_constraintVertical_bias="1.0" />
 
 	<TextView
 		android:id="@+id/etEmail"
 		android:layout_width="311dp"
 		android:layout_height="43dp"
-		android:layout_marginRight="33dp"
-		android:layout_marginTop="398dp"
+		android:layout_marginRight="8dp"
+		android:layout_marginTop="417dp"
 		android:inputType="none"
 		android:textSize="18sp"
 		android:textStyle="bold"
 		app:layout_constraintRight_toRightOf="parent"
-		app:layout_constraintTop_toTopOf="parent" />
+		app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+		app:layout_constraintHorizontal_bias="0.333" />
 
 </android.support.constraint.ConstraintLayout>
 </ScrollView>

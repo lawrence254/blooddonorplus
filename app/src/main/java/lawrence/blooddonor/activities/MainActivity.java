@@ -1,7 +1,10 @@
 package lawrence.blooddonor.activities;
 
+import android.content.BroadcastReceiver;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -12,6 +15,9 @@ import lawrence.blooddonor.R;
 import lawrence.blooddonor.adapters.TabsPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
+
+	private BroadcastReceiver mRegistrationBroadcastReceiver;
+	public static final String PUSH_NOTIFICATION="pushNotification";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -64,4 +70,19 @@ public class MainActivity extends AppCompatActivity {
 
 		return super.onOptionsItemSelected(item);
 	}
+	@Override
+	protected void onResume() {
+		super.onResume();
+
+		// register new push message receiver
+		// by doing this, the activity will be notified each time a new message arrives
+		LocalBroadcastManager.getInstance(this).registerReceiver(mRegistrationBroadcastReceiver, new IntentFilter(PUSH_NOTIFICATION));
+	}
+
+	@Override
+	protected void onPause() {
+		LocalBroadcastManager.getInstance(this).unregisterReceiver(mRegistrationBroadcastReceiver);
+		super.onPause();
+	}
+
 }
