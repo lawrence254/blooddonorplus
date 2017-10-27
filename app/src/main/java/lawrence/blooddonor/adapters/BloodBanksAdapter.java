@@ -49,7 +49,7 @@ public class BloodBanksAdapter extends RecyclerView.Adapter<BloodBanksAdapter.Vi
 		private TextView hospName;
 		private TextView contact;
 
-		ViewHolder(View itemView) {
+		ViewHolder(final View itemView) {
 			super(itemView);
 			hospName = (TextView)itemView.findViewById(R.id.hosp);
 			contact = (TextView)itemView.findViewById(R.id.contact);
@@ -58,9 +58,10 @@ public class BloodBanksAdapter extends RecyclerView.Adapter<BloodBanksAdapter.Vi
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    Intent intent=new Intent(v.getContext(), CardData.class);
-//                    v.getContext().startActivity(intent);
-                    Toast.makeText(context,"The Item Clicked is: "+getAdapterPosition(), Toast.LENGTH_SHORT).show();
+                    Intent intent=new Intent(v.getContext(), CardData.class);
+					//intent.putExtra("Hospital");
+                    v.getContext().startActivity(intent);
+                  //  Toast.makeText(context,"The Item Clicked is: "+getAdapterPosition(), Toast.LENGTH_SHORT).show();
                 }
             });
 		}
