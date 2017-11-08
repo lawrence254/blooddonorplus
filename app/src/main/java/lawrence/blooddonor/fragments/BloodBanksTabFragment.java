@@ -76,7 +76,7 @@ public class BloodBanksTabFragment extends Fragment {
 			protected Void doInBackground(Integer... integers) {
 				OkHttpClient client = new OkHttpClient();
 				Request request = new Request.Builder()
-						.url("http://192.168.137.1:80/card.php?id=" + id)
+						.url("https://bdplus.000webhostapp.com/card.php?id=" + id)
 						.build();
 				try {
 					Response response = client.newCall(request).execute();

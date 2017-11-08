@@ -9,7 +9,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:3.0.0'
         classpath 'com.google.gms:google-services:3.0.0'
     }
 }
@@ -22,7 +22,7 @@ allprojects {
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "lawrence.blooddonor"
         minSdkVersion 14
@@ -57,6 +57,7 @@ dependencies {
     compile 'com.google.firebase:firebase-auth:10.0.1'
     compile 'com.squareup.okhttp3:okhttp:3.6.0'
     compile 'com.android.volley:volley:1.0.0'
+    compile 'com.google.code.gson:gson:2.6.2'
     testCompile 'junit:junit:4.12'
 }
 
