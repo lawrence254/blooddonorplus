@@ -21,6 +21,6 @@
     <string name="btlogin">Click Here If You Have An Account</string>
     <string name="login">Log Me In</string>
     <string name="reg">Don\'t Have An Account?Register</string>
-    <string name="search_view">Blood Type To Search...</string>
+    <string name="search_view">Search...</string>
     <string name="action_search">Search</string>
 </resources>

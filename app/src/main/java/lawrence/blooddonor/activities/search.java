@@ -73,7 +73,7 @@ public class search extends AppCompatActivity {
             String query=intent.getStringExtra(SearchManager.QUERY);
             Object searchView = null;
             if(searchView !=null) {
-                searchView.clearfocus();
+                //searchView.
             }
             new AsyncFetch(query).execute();
         }
@@ -99,7 +99,7 @@ public class search extends AppCompatActivity {
         @Override
         protected String doInBackground(String...params) {
             try{
-                url=new URL("http://192.168.137.1/search.php");
+                url=new URL("https://bdplus.000webhostapp.com/search.php");
             } catch (MalformedURLException e) {
                 e.printStackTrace();
                 return e.toString();
