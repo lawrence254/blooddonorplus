@@ -154,9 +154,11 @@ public class RegisterActivity extends Activity implements AdapterView.OnItemSele
      * Function to store user in MySQL database will post params(tag, name,
      * email, password,sex,blood) to register url
      * */
+
     private void registerUser(final String fname,final String lname, final String email,
                               final String password,final String sex,final String blood) {
         // Tag used to cancel the request
+
         String tag_string_req = "req_register";
 
         pDialog.setMessage("Registering ...");

@@ -47,11 +47,21 @@
 				android:layout_toRightOf="@+id/hospPhoto" />
 
 			<TextView
+				android:id="@+id/unit"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_below="@+id/contact"
 				android:layout_toRightOf="@+id/hospPhoto"
 				android:text="Blood Units: " />
+
+			<TextView
+				android:id="@+id/id"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_below="@+id/unit"
+				android:layout_toRightOf="@+id/hospPhoto"
+				android:text="ID: "
+				android:visibility="visible" />
 		</RelativeLayout>
 
 

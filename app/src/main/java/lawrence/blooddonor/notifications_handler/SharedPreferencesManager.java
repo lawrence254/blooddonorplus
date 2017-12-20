@@ -14,7 +14,7 @@ public class SharedPreferencesManager {
     private static SharedPreferencesManager mInstance;
     private static Context mcontext;
 
-    private SharedPreferencesManager(Context context){
+    SharedPreferencesManager(Context context){
         mcontext=context;
     }
     public static synchronized SharedPreferencesManager getInstance(Context context){
@@ -36,4 +36,8 @@ public class SharedPreferencesManager {
         SharedPreferences sharedPreferences=mcontext.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         return sharedPreferences.getString(TAG,null);
     }
+
+//    public void saveDeviceToken(boolean b) {
+//
+//    }
 }

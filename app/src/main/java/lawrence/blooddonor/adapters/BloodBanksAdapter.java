@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 import lawrence.blooddonor.R;
@@ -33,6 +35,9 @@ public class BloodBanksAdapter extends RecyclerView.Adapter<BloodBanksAdapter.Vi
 	public void onBindViewHolder(BloodBanksAdapter.ViewHolder holder, int position) {
 		holder.hospName.setText(my_data.get(position).getHospName());
 		holder.contact.setText(my_data.get(position).getContact());
+		holder.id.setText(String.valueOf(my_data.get(position).getId()));
+
+		holder.itemView.setTag(position);
 	}
 
 	@Override
@@ -49,22 +54,27 @@ public class BloodBanksAdapter extends RecyclerView.Adapter<BloodBanksAdapter.Vi
 	class ViewHolder extends RecyclerView.ViewHolder {
 		private TextView hospName;
 		private TextView contact;
+		private TextView id;
+
 
 		ViewHolder(final View itemView) {
 			super(itemView);
 			hospName = (TextView)itemView.findViewById(R.id.hosp);
 			contact = (TextView)itemView.findViewById(R.id.contact);
+			id=(TextView)itemView.findViewById(R.id.id);
 
             //Handling on click events
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent=new Intent(v.getContext(), CardData.class);
+                    int position= getAdapterPosition();
+					intent.putExtra("position",position+1 );
                     v.getContext().startActivity(intent);
 
                     //Toast.makeText(context,"The Item Clicked is: "+getAdapterPosition(), Toast.LENGTH_SHORT).show();
 					//Trying this shit out
-					intent.putExtra("hospName", hospName.toString());
+
                 }
             });
 		}
