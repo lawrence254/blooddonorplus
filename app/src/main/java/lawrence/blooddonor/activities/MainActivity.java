@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         /*End of initialization*/
 
 		TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-		tabLayout.addTab(tabLayout.newTab().setText("Search"));
+		tabLayout.addTab(tabLayout.newTab().setText("Facts"));
 		tabLayout.addTab(tabLayout.newTab().setText("Blood Banks"));
 		tabLayout.addTab(tabLayout.newTab().setText("Bio Data"));
 		tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);

@@ -8,14 +8,11 @@ public class Quotes {
     private int id;
     private String fact,source;
 
-    public Quotes(int id,String fact, String source){
-        //this.id=id;
+    public Quotes(String fact, String source){
+
         this.fact=fact;
         this.source = source;
     }
-//    public int getId(){
-//        return id;
-//    }
     public String getFact(){
         return fact;
     }

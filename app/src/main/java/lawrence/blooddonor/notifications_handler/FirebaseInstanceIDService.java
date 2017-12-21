@@ -1,7 +1,5 @@
 package lawrence.blooddonor.notifications_handler;
 
-import android.content.Intent;
-import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -17,7 +15,6 @@ import com.google.gson.GsonBuilder;
 import java.util.HashMap;
 import java.util.Map;
 
-import lawrence.blooddonor.activities.MainActivity;
 
 /**
  * Created by EliteBook on 10/9/2017.
@@ -36,7 +33,12 @@ public class FirebaseInstanceIDService extends FirebaseInstanceIdService{
     }
     private void storeToken(final String token){
         //Saving token to shared preferences
+<<<<<<< HEAD
         SharedPreferencesManager.getInstance(getApplicationContext()).saveDeviceToken(token);
+=======
+        //SharedPreferencesManager.getInstance(getApplicationContext()).saveDeviceToken(refreshedToken);
+
+>>>>>>> master
 //        storing token to mysql database
         queue = Volley.newRequestQueue(getApplicationContext());
         mySharedPreference = new SharedPreferencesManager(getApplicationContext());
@@ -49,10 +51,17 @@ public class FirebaseInstanceIDService extends FirebaseInstanceIdService{
                 tokenObject = gson.fromJson(response, tokenobject.class);
                 if (null == tokenObject) {
                     Toast.makeText(getApplicationContext(), "Can't send a token to the server", Toast.LENGTH_LONG).show();
+<<<<<<< HEAD
                     mySharedPreference.saveDeviceToken(String.valueOf(false));
                 } else {
                     Toast.makeText(getApplicationContext(), "Token successfully send to server", Toast.LENGTH_LONG).show();
                     mySharedPreference.saveDeviceToken(String.valueOf(true));
+=======
+                    mySharedPreference.saveDeviceToken(false);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Token successfully send to server", Toast.LENGTH_LONG).show();
+                    mySharedPreference.saveDeviceToken(true);
+>>>>>>> master
                 }
             }
         },
@@ -65,12 +74,20 @@ public class FirebaseInstanceIDService extends FirebaseInstanceIdService{
                 }) {
             @Override
             protected Map<String, String> getParams() {
+<<<<<<< HEAD
                 Map<String, String> params = new HashMap<>();
+=======
+                Map<String, String> params = new HashMap<String, String>();
+>>>>>>> master
                 params.put("token", token);
                 return params;
             }
         };
         queue.add(stringPostRequest);
     }
+<<<<<<< HEAD
 }
 
+=======
+}
+>>>>>>> master

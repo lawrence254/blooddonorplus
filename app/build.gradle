@@ -9,7 +9,11 @@ buildscript {
     }
 
     dependencies {
+<<<<<<< HEAD
         classpath 'com.android.tools.build:gradle:3.0.1'
+=======
+        classpath 'com.android.tools.build:gradle:3.0.0'
+>>>>>>> master
         classpath 'com.google.gms:google-services:3.0.0'
     }
 }

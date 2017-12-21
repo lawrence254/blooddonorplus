@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://C:\Users\ELITEBOOK\Documents\GitHub\blooddonorplus\BloodDonor+.iml" filepath="C:\Users\ELITEBOOK\Documents\GitHub\blooddonorplus\BloodDonor+.iml" />
+=======
+>>>>>>> master
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/blooddonorplus.iml" filepath="$PROJECT_DIR$/blooddonorplus.iml" />
     </modules>
