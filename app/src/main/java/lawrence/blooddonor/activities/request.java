@@ -61,7 +61,7 @@ public class request extends AppCompatActivity {
 
         unitsin=(EditText)findViewById(R.id.units);
 
-        final String blood= sType.getSelectedItem().toString();
+
 
         Button sendRequest=(Button)findViewById(R.id.placeRequest);
 
@@ -70,6 +70,7 @@ public class request extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final String units=unitsin.getText().toString();
+                final String type= sType.getSelectedItem().toString();
                         /*Handling Requests after Request Button is Clicked*/
                 //int fin=Integer.parseInt(units);
                 if(units.trim().length()<1){
@@ -81,9 +82,9 @@ public class request extends AppCompatActivity {
                     SQLiteHandler db=new SQLiteHandler(getApplicationContext());
                     HashMap<String,String> user=db.getUserDetails();
                     String uid=user.get("uid");
-                    bloodRequest(units,blood,uid);
+                    bloodRequest(units,type,uid);
                     Toast.makeText(getApplicationContext(),
-                            "Sending request for: "+units+" Units of blood", Toast.LENGTH_SHORT)
+                            "Sending request for: "+units+" Units of blood. Request ID: "+uid, Toast.LENGTH_SHORT)
                             .show();
                     System.out.print("Units entered: "+units);
 
@@ -91,13 +92,13 @@ public class request extends AppCompatActivity {
             }
         });
     }
-    private void bloodRequest(final String units, final String blood, final String uid) {
+    private void bloodRequest(final String units, final String type, final String uid) {
         String URL="https://bdplus.000webhostapp.com/request.php";
         StringRequest strRequest = new StringRequest(Request.Method.POST, URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        System.out.println(response);
+                        System.out.println("Response From Server IS: "+response);
                         Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
                     }
                 },
@@ -110,9 +111,9 @@ public class request extends AppCompatActivity {
             @Override
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<>();
-                params.put(units,units);
-                params.put(blood, blood);
-                params.put(uid,uid);
+                params.put("uid",uid);
+                params.put("blood", type);
+                params.put("units",units);
                 return params;
             }
         };
