@@ -24,7 +24,7 @@ public class SharedPreferencesManager {
         return mInstance;
     }
     //Saving device token to shared preferences
-    public void saveDeviceToken(boolean token){
+    public void saveDeviceToken(String token){
         SharedPreferences sharedPreferences=mcontext.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         SharedPreferences.Editor editor=sharedPreferences.edit();
         editor.putString(TAG, String.valueOf(token));

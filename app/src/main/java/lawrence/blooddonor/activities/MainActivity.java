@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 		TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
 		tabLayout.addTab(tabLayout.newTab().setText("Facts"));
 		tabLayout.addTab(tabLayout.newTab().setText("Blood Banks"));
-		tabLayout.addTab(tabLayout.newTab().setText("Bio Data"));
+		tabLayout.addTab(tabLayout.newTab().setText("My Data"));
 		tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
 		final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);

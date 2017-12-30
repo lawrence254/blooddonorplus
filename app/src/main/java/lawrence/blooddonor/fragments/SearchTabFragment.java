@@ -68,6 +68,8 @@ public class SearchTabFragment extends Fragment {
 		recyclerView = (RecyclerView)root.findViewById(R.id.factRecycler);
 		recyclerView.setHasFixedSize(true);
 
+
+
 		quotesList=new ArrayList<>();
 
 		load_data_from_server();
@@ -103,17 +105,18 @@ public class SearchTabFragment extends Fragment {
 					for (int i = 0; i < array.length(); i++) {
 						JSONObject object = array.getJSONObject(i);
 						Quotes data =
-								new Quotes(object.getInt("id"), object.getString("fact"), object.getString("source"));
+								new Quotes(object.getString("fact"), object.getString("source"));
 						quotesList.add(data);
-						Log.i("Fetching...", "Quotes"+object.getString("fact"));
+						Log.i("Fetching...", "Quotes");
 					}
 
 				} catch (IOException e) {
 					e.printStackTrace();
 				} catch (JSONException e) {
 					e.printStackTrace();
-					}
-
+					System.out.println("No More Quotes");
+				}
+				Log.e(TAG,"Server Not Working" );
 				return null;
 			}
 

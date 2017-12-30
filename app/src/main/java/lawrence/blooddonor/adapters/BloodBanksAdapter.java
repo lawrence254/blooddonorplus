@@ -68,7 +68,7 @@ public class BloodBanksAdapter extends RecyclerView.Adapter<BloodBanksAdapter.Vi
                 @Override
                 public void onClick(View v) {
                     Intent intent=new Intent(v.getContext(), CardData.class);
-<<<<<<< HEAD
+
                     int position= getAdapterPosition();
 					intent.putExtra("position",position+1 );
                     v.getContext().startActivity(intent);
@@ -76,11 +76,11 @@ public class BloodBanksAdapter extends RecyclerView.Adapter<BloodBanksAdapter.Vi
                     //Toast.makeText(context,"The Item Clicked is: "+getAdapterPosition(), Toast.LENGTH_SHORT).show();
 					//Trying this shit out
 
-=======
+
 					//intent.putExtra("Hospital");
                     v.getContext().startActivity(intent);
                   //  Toast.makeText(context,"The Item Clicked is: "+getAdapterPosition(), Toast.LENGTH_SHORT).show();
->>>>>>> master
+
                 }
             });
 		}
