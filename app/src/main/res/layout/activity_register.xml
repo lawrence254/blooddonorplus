@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/bg_register"
+
     android:gravity="center"
     android:orientation="vertical"
     android:padding="10dp" >
@@ -20,7 +20,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:background="@color/input_register_bg"
+
             android:hint="@string/first_name"
             android:inputType="textCapWords"
             android:maxLines="1"
@@ -33,13 +33,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:background="@color/input_register_bg"
+
             android:hint="@string/last_name"
             android:inputType="textCapWords"
             android:maxLines="1"
             android:padding="10dp"
             android:textColor="@color/input_register"
             android:textColorHint="@color/input_register_hint" />
+
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Enter Phone Number"
+            android:inputType="phone" />
 
         <Spinner
             android:id="@+id/sGender"
@@ -57,7 +65,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:background="@color/input_register_bg"
+
             android:hint="@string/email_address"
             android:inputType="textEmailAddress"
             android:maxLines="1"
@@ -70,7 +78,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:background="@color/input_register_bg"
+
             android:hint="@string/enter_password"
             android:inputType="textPassword"
             android:maxLines="1"

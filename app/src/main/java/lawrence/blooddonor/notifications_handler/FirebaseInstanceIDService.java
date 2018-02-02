@@ -33,25 +33,34 @@ public class FirebaseInstanceIDService extends FirebaseInstanceIdService{
     }
     private void storeToken(final String token){
         //Saving token to shared preferences
+
+        SharedPreferencesManager.getInstance(getApplicationContext()).saveDeviceToken(token);
+
         //SharedPreferencesManager.getInstance(getApplicationContext()).saveDeviceToken(refreshedToken);
+
 
 //        storing token to mysql database
         queue = Volley.newRequestQueue(getApplicationContext());
         mySharedPreference = new SharedPreferencesManager(getApplicationContext());
-        StringRequest stringPostRequest = new StringRequest(com.android.volley.Request.Method.POST,"https://bdplus.000webhostapp.com/notify/regtoken.php", new com.android.volley.Response.Listener<String>() {
+        StringRequest stringPostRequest = new StringRequest(com.android.volley.Request.Method.POST,"https://grazed-scene.000webhostapp.com/bdp/notify/regtoken.php", new com.android.volley.Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
                 GsonBuilder builder = new GsonBuilder();
                 Gson gson = builder.create();
                 tokenObject = gson.fromJson(response, tokenobject.class);
                 if (null == tokenObject) {
-                    Toast.makeText(getApplicationContext(), "Can't send a token to the server", Toast.LENGTH_LONG).show();
-                    mySharedPreference.saveDeviceToken(false);
+                    Toast.makeText(getApplicationContext(), "Can't send your token to the server", Toast.LENGTH_LONG).show();
+
+                    mySharedPreference.saveDeviceToken(String.valueOf(false));
                 } else {
-                    Toast.makeText(getApplicationContext(), "Token successfully send to server", Toast.LENGTH_LONG).show();
-                    mySharedPreference.saveDeviceToken(true);
+                    Toast.makeText(getApplicationContext(), "Token successfully sent to server", Toast.LENGTH_LONG).show();
+                    mySharedPreference.saveDeviceToken(String.valueOf(true));
+
+                    mySharedPreference.saveDeviceToken(String.valueOf(false));
                 }
+
+
             }
         },
                 new com.android.volley.Response.ErrorListener() {
@@ -63,11 +72,20 @@ public class FirebaseInstanceIDService extends FirebaseInstanceIdService{
                 }) {
             @Override
             protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<String, String>();
+
+                Map<String, String> params = new HashMap<>();
+
+               // Map<String, String> params = new HashMap<String, String>();
+
                 params.put("token", token);
                 return params;
             }
         };
         queue.add(stringPostRequest);
     }
+
 }
+
+
+
+

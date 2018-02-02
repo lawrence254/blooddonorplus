@@ -21,4 +21,24 @@
     <string name="btlogin">Click Here If You Have An Account</string>
     <string name="login">Log Me In</string>
     <string name="reg">Don\'t Have An Account?Register</string>
+    <string name="search_view">Search...</string>
+    <string name="action_search">Search</string>
+    <string name="group_ap">Group A+</string>
+    <string name="group_bp">Group B+</string>
+    <string name="group_abp">Group AB+</string>
+    <string name="group_op">Group O+</string>
+    <string name="group_bn">Group B-</string>
+    <string name="group_abn">Group AB-</string>
+    <string name="group_on">Group O-</string>
+    <string name="group_an">Group A-</string>
+    <string name="Hosp_Image">Donation Center Image</string>
+    <string name="btnRequest">REQUEST DONATION</string>
+    <string name="select_blood_group">Select Blood Group</string>
+    <string name="enter_number_of_units">Enter Number of Units</string>
+    <string name="blood_donation_request">Blood Donation Request</string>
+    <string name="place_request">PLACE REQUEST</string>
+    <string name="textview">TextView</string>
+    <string name="toolbar_title">Search</string>
+    <string name="search_hint">Search hospital or donor</string>
+
 </resources>

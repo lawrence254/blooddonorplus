@@ -13,7 +13,10 @@
 	<color name="btn_login_bg">#eceef1</color>
 	<color name="btn_reg_bg">#ffffff</color>
 	<color name="bg_login">#26ae90</color>
-	<color name="bg_register">#d1021a</color>
+	<color name="bg_register">#0217d1</color>
 	<color name="bg_register_txt">#000</color>
 	<color name="white">#ffffff</color>
+
+	<color name="contact_name">#333333</color>
+	<color name="contact_number">#8c8c8c</color>
 </resources>

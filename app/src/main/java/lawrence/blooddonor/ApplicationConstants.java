@@ -5,12 +5,14 @@ package lawrence.blooddonor;
  */
 
 public class ApplicationConstants {
-	public static final String URL_ADD = "https://bdplus.000webhostapp.com/add.php";
-	public static final String URL_CARD = "https://bdplus.000webhostapp.com/card.php?id=";
+	public static final String URL_ADD = "https://grazed-scene.000webhostapp.com/bdp/add.php";
+	public static final String URL_CARD = "https://grazed-scene.000webhostapp.com/bdp/card.php?id=";
+
 	public static final String URL_GET_ALL = "http://192.168.137.1/Android/CRUD/getAllEmp.php";
 	public static final String URL_GET_EMP = "http://192.168.137.1/Android/CRUD/getEmp.php?id=";
 	public static final String URL_UPDATE_EMP = "http://192.168.137.1/Android/CRUD/updateEmp.php";
 	public static final String URL_DELETE_EMP = "http://192.168.137.1/Android/CRUD/deleteEmp.php?id=";
+
 
 	//Keys that will be used to send the request to php scripts
 

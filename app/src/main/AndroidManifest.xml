@@ -27,20 +27,42 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.search" />
-        <activity android:name=".activities.CardData"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+
+        <meta-data
+            android:name="android.app.default_searchable"
+            android:value=".activities.SearchResults"/>
+
+        </activity>
+        <activity android:name=".activities.CardData" />
 
         <service android:name=".notifications_handler.FirebaseInstanceIDService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
         <service android:name=".notifications_handler.myFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
+        <activity android:name=".activities.request"></activity>
+        <activity android:name=".activities.SearchResults"
+            android:parentActivityName=".activities.MainActivity">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+            <!-- meta tag and intent filter go into results activity -->
+            <meta-data android:name="android.app.searchable"
+                android:resource="@layout/searchable" />
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>

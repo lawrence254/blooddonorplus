@@ -1,6 +1,9 @@
 package lawrence.blooddonor.fragments;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.iid.FirebaseInstanceId;
@@ -40,7 +44,7 @@ public class BloodBanksTabFragment extends Fragment {
 	private LinearLayoutManager layoutManager;
 	private BloodBanksAdapter adapter;
 	private List<Hospital> data_List = new ArrayList<>();
-
+	private ProgressDialog pDialog;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -55,7 +59,21 @@ public class BloodBanksTabFragment extends Fragment {
 		recyclerView = (RecyclerView)root.findViewById(R.id.bloodBanksRecyclerView);
 		recyclerView.setHasFixedSize(true);
 
-		load_data_from_server(0);
+		// Progress dialog
+		pDialog = new ProgressDialog(getContext());
+		pDialog.setCancelable(false);
+
+		// Check the status of the network connection.
+		ConnectivityManager connMgr = (ConnectivityManager) this.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+
+		// If the network is active activate asynctask
+		if (networkInfo != null) {
+			load_data_from_server(0);
+		}
+		else{
+			Toast.makeText( getContext(),"Please Check Your Internet Connection and Try again...", Toast.LENGTH_LONG).show();
+		}
 		return root;
 	}
 
@@ -63,6 +81,11 @@ public class BloodBanksTabFragment extends Fragment {
 		AsyncTask<Integer, Void, Void> task = new AsyncTask<Integer, Void, Void>() {
 			private Context applicationContext;
 			private Context activity;
+
+//			protected void onPreExecute(){
+//				pDialog.setMessage("Fetching BloodBanks ...Please Wait");
+//				showDialog();
+//			}
 
 			Context getApplicationContext() {
 				return applicationContext;
@@ -93,8 +116,10 @@ public class BloodBanksTabFragment extends Fragment {
 					}
 
 				} catch (IOException e) {
+					Toast.makeText( getContext(),"Please Check Your Internet Connection and Try again...", Toast.LENGTH_LONG).show();
 					e.printStackTrace();
 				} catch (JSONException e) {
+					Toast.makeText( getContext(),"Please Check Your Internet Connection and Try again...", Toast.LENGTH_LONG).show();
 					e.printStackTrace();
 					System.out.println("No More Hospitals");
 				}
@@ -112,10 +137,25 @@ public class BloodBanksTabFragment extends Fragment {
 				recyclerView.setAdapter(adapter);
 
 				adapter.notifyDataSetChanged();
+
+//				if (pDialog.isShowing()) {
+//					pDialog.dismiss();
+//				}
 			}
 		};
 		task.execute(id);
 
+	}
+
+
+	private void showDialog() {
+		if (!pDialog.isShowing())
+			pDialog.show();
+	}
+
+	private void hideDialog() {
+		if (pDialog.isShowing())
+			pDialog.dismiss();
 	}
 
 }

@@ -32,6 +32,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 	private static final String KEY_ID = "id";
 	private static final String KEY_FNAME = "fname";
 	private static final String KEY_LNAME = "lname";
+	private static final String KEY_PHONE = "phone";
 	private static final String KEY_EMAIL = "email";
 	private static final String KEY_SEX = "sex";
 	private static final String KEY_BLOOD = "blood";
@@ -47,7 +48,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		String CREATE_LOGIN_TABLE = "CREATE TABLE " + TABLE_USER + "("
 				+ KEY_ID + " INTEGER PRIMARY KEY," + KEY_FNAME + " TEXT,"
-				+  KEY_LNAME + " TEXT,"+ KEY_SEX + " TEXT,"
+				+  KEY_LNAME + " TEXT,"+ KEY_PHONE + " TEXT," +KEY_SEX + " TEXT,"
 				+  KEY_BLOOD + " TEXT,"
 				+ KEY_EMAIL + " TEXT UNIQUE," + KEY_UID + " TEXT,"
 				+ KEY_CREATED_AT + " TEXT" + ")";
@@ -69,12 +70,13 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 	/**
 	 * Storing user details in database
 	 * */
-	public void addUser(String fname,String lname, String email,String sex,String blood, String uid, String created_at) {
+	public void addUser(String fname,String lname, String phone, String email,String sex,String blood, String uid, String created_at) {
 		SQLiteDatabase db = this.getWritableDatabase();
 
 		ContentValues values = new ContentValues();
 		values.put(KEY_FNAME, fname); // FName
 		values.put(KEY_LNAME, lname); // LName
+		values.put(KEY_PHONE, phone);
 		values.put(KEY_EMAIL, email); // Email
 		values.put(KEY_SEX, sex);
 		values.put(KEY_BLOOD, blood);
@@ -102,11 +104,12 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 		if (cursor.getCount() > 0) {
 			user.put("fname", cursor.getString(1));
 			user.put("lname", cursor.getString(2));
-			user.put("email", cursor.getString(3));
-			user.put("sex", cursor.getString(4));
-			user.put("blood", cursor.getString(5));
-			user.put("uid", cursor.getString(6));
-			user.put("created_at", cursor.getString(7));
+			user.put("phone", cursor.getString(3));
+			user.put("email", cursor.getString(4));
+			user.put("sex", cursor.getString(5));
+			user.put("blood", cursor.getString(6));
+			user.put("uid", cursor.getString(7));
+			user.put("created_at", cursor.getString(8));
 		}
 		cursor.close();
 		db.close();
