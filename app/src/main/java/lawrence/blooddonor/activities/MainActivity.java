@@ -4,23 +4,38 @@ import android.app.DialogFragment;
 import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
+
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,12 +55,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lawrence.blooddonor.R;
+import lawrence.blooddonor.adapters.SearchAdapter;
 import lawrence.blooddonor.adapters.TabsPagerAdapter;
+import lawrence.blooddonor.models.AppController;
+import lawrence.blooddonor.models.Search;
 
 public class MainActivity extends AppCompatActivity {
 
 	private BroadcastReceiver mRegistrationBroadcastReceiver;
-	public static final String PUSH_NOTIFICATION="pushNotification";
+	public static final String PUSH_NOTIFICATION = "pushNotification";
+
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +74,12 @@ public class MainActivity extends AppCompatActivity {
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
 		/*Initialize a new method to handle search*/
-        handleIntent(getIntent());
+
         /*End of initialization*/
+
+
+
+
 
 		TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
 		tabLayout.addTab(tabLayout.newTab().setText("Facts"));
@@ -83,25 +107,10 @@ public class MainActivity extends AppCompatActivity {
 
 			}
 		});
-
 	}
 
-    @Override
-    protected void onNewIntent(Intent intent) {
-        handleIntent(intent);
-    }
 
-    private void handleIntent(Intent intent) {
-        if(intent.ACTION_SEARCH.equals(intent.getAction())){
-            String query=intent.getStringExtra(SearchManager.QUERY);
-            Object searchView = null;
-            if(searchView !=null) {
-                //searchView.
-            }
-            new AsyncFetch(query).execute();
-        }
 
-    }
 
     @Override
 	protected void onResume() {
@@ -123,21 +132,14 @@ public class MainActivity extends AppCompatActivity {
 		MenuInflater inflater=getMenuInflater();
 		inflater.inflate(R.menu.search_main,menu);
 		MenuItem item=menu.findItem(R.id.action_search);
-		SearchView searchView=(SearchView)item.getActionView();
-
-		SearchManager searchManager=(SearchManager)getSystemService(getApplicationContext().SEARCH_SERVICE);
-		searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-
+		SearchView search = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
+		// Associate searchable configuration with the SearchView
+		SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+		search.setSearchableInfo(searchManager.getSearchableInfo(new ComponentName(this, SearchResults.class)));
+		search.setQueryHint(getResources().getString(R.string.search_hint));
 		return true;
 	}
 
-    private class AsyncFetch {
-        public AsyncFetch(String query) {
-            new AsyncFetch(query).execute();
-        }
 
-        private void execute() {
 
-        }
-    }
 }

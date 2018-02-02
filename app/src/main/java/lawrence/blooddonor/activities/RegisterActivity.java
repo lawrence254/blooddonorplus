@@ -43,6 +43,7 @@ public class RegisterActivity extends Activity implements AdapterView.OnItemSele
     private Button btnLinkToLogin;
     private EditText inputFirstName;
     private EditText inputLastName;
+    private EditText Inputphone;
     private EditText inputEmail;
     private EditText inputPassword;
     private ProgressDialog pDialog;
@@ -93,6 +94,7 @@ public class RegisterActivity extends Activity implements AdapterView.OnItemSele
 
         inputFirstName = (EditText) findViewById(R.id.etFname);
         inputLastName = (EditText) findViewById(R.id.etLname);
+        Inputphone = (EditText) findViewById(R.id.phone);
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
         btnRegister = (Button) findViewById(R.id.btnRegister);
@@ -122,13 +124,14 @@ public class RegisterActivity extends Activity implements AdapterView.OnItemSele
             public void onClick(View view) {
                 String fname = inputFirstName.getText().toString().trim();
                 String lname = inputLastName.getText().toString().trim();
+                String phone = Inputphone.getText().toString().trim();
                 String email = inputEmail.getText().toString().trim();
                 String password = inputPassword.getText().toString().trim();
                 String sex = sGender.getSelectedItem().toString();
                 String blood =sType.getSelectedItem().toString();
 
-                if (!fname.isEmpty() &&!lname.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
-                    registerUser(fname,lname, email, password,sex,blood);
+                if (!fname.isEmpty() &&!lname.isEmpty() &&(phone.trim().length()>1) && !email.isEmpty() && !password.isEmpty()) {
+                    registerUser(fname,lname,phone, email, password,sex,blood);
                 } else {
                     Toast.makeText(getApplicationContext(),
                             "Please enter your details!", Toast.LENGTH_LONG)
@@ -155,7 +158,7 @@ public class RegisterActivity extends Activity implements AdapterView.OnItemSele
      * email, password,sex,blood) to register url
      * */
 
-    private void registerUser(final String fname,final String lname, final String email,
+    private void registerUser(final String fname,final String lname,final String phone, final String email,
                               final String password,final String sex,final String blood) {
         // Tag used to cancel the request
 
@@ -183,6 +186,7 @@ public class RegisterActivity extends Activity implements AdapterView.OnItemSele
                         JSONObject user = jObj.getJSONObject("user");
                         String fname = user.getString("fname");
                         String lname = user.getString("lname");
+                        String phone = user.getString("phone");
                         String email = user.getString("email");
                         String sex = user.getString("sex");
                         String blood = user.getString("blood");
@@ -190,7 +194,7 @@ public class RegisterActivity extends Activity implements AdapterView.OnItemSele
                                 .getString("created_at");
 
                         // Inserting row in users table
-                        db.addUser(fname,lname, email, sex, blood, uid, created_at);
+                        db.addUser(fname,lname,phone, email, sex, blood, uid, created_at);
 
                         Toast.makeText(getApplicationContext(), "User successfully registered. Try login now!", Toast.LENGTH_LONG).show();
 
@@ -230,6 +234,7 @@ public class RegisterActivity extends Activity implements AdapterView.OnItemSele
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("fname", fname);
                 params.put("lname", lname);
+                params.put("phone", phone);
                 params.put("email", email);
                 params.put("password", password);
                 params.put("sex", sex);

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_blooddonorplus" default="compile.module.blooddonorplus">
+  <dirname property="module.blooddonorplus.basedir" file="${ant.file.module_blooddonorplus}"/>
+  
+  <property name="module.jdk.home.blooddonorplus" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.blooddonorplus" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.blooddonorplus" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.blooddonorplus" value="-encoding UTF-8 -source 1.7 -target 1.7 ${compiler.args}"/>
+  
+  <property name="blooddonorplus.output.dir" value="${module.blooddonorplus.basedir}/build/classes/production/blooddonorplus"/>
+  <property name="blooddonorplus.testoutput.dir" value="${module.blooddonorplus.basedir}/build/classes/test/blooddonorplus"/>
+  
+  <path id="blooddonorplus.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="blooddonorplus.module.production.classpath">
+    <path refid="${module.jdk.classpath.blooddonorplus}"/>
+  </path>
+  
+  <path id="blooddonorplus.runtime.production.module.classpath">
+    <pathelement location="${blooddonorplus.output.dir}"/>
+  </path>
+  
+  <path id="blooddonorplus.module.classpath">
+    <path refid="${module.jdk.classpath.blooddonorplus}"/>
+    <pathelement location="${blooddonorplus.output.dir}"/>
+  </path>
+  
+  <path id="blooddonorplus.runtime.module.classpath">
+    <pathelement location="${blooddonorplus.testoutput.dir}"/>
+    <pathelement location="${blooddonorplus.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.blooddonorplus">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.blooddonorplus">
+    <patternset refid="excluded.from.module.blooddonorplus"/>
+  </patternset>
+  
+  
+  <target name="compile.module.blooddonorplus" depends="compile.module.blooddonorplus.production,compile.module.blooddonorplus.tests" description="Compile module blooddonorplus"/>
+  
+  <target name="compile.module.blooddonorplus.production" depends="register.custom.compilers" description="Compile module blooddonorplus; production classes"/>
+  
+  <target name="compile.module.blooddonorplus.tests" depends="register.custom.compilers,compile.module.blooddonorplus.production" description="compile module blooddonorplus; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.blooddonorplus" description="cleanup module">
+    <delete dir="${blooddonorplus.output.dir}"/>
+    <delete dir="${blooddonorplus.testoutput.dir}"/>
+  </target>
+</project>

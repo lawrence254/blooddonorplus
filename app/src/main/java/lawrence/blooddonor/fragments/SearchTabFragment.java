@@ -1,6 +1,9 @@
 package lawrence.blooddonor.fragments;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -44,6 +48,7 @@ public class SearchTabFragment extends Fragment {
 	private LinearLayoutManager layoutManager;
 	private FactsAdapter adapter;
 	private List<Quotes> quotesList = new ArrayList<>();
+	private ProgressDialog pDialog;
 
 	private Context applicationContext;
 	private Context activity;
@@ -68,12 +73,21 @@ public class SearchTabFragment extends Fragment {
 		recyclerView = (RecyclerView)root.findViewById(R.id.factRecycler);
 		recyclerView.setHasFixedSize(true);
 
-
+		// Progress dialog
+		pDialog = new ProgressDialog(getContext());
+		pDialog.setCancelable(false);
 
 		quotesList=new ArrayList<>();
+		ConnectivityManager connMgr = (ConnectivityManager) this.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
-		load_data_from_server();
-
+		// If the network is active activate asynctask
+		if (networkInfo != null) {
+			load_data_from_server();
+		}
+		else{
+			Toast.makeText( getContext(),"Please Check Your Internet Connection and Try again...", Toast.LENGTH_LONG).show();
+		}
 		return root;
 	}
 
@@ -81,6 +95,13 @@ public class SearchTabFragment extends Fragment {
 		AsyncTask<Integer, Void, Void> task = new AsyncTask<Integer, Void, Void>() {
 			private Context applicationContext;
 			private Context activity;
+
+			//Toast.makeText(getContext(),"Fetching some interesting facts for you...",Toast.LENGTH_LONG);
+
+			protected void onPreExecute(){
+				pDialog.setMessage("Getting some facts ...");
+				showDialog();
+			}
 
 			Context getApplicationContext() {
 				return applicationContext;
@@ -96,6 +117,8 @@ public class SearchTabFragment extends Fragment {
 				okhttp3.Request request = new okhttp3.Request.Builder()
 						.url(URL_QUOTES)
 						.build();
+
+
 				try {
 					okhttp3.Response response = client.newCall(request).execute();
 					String Json=response.body().string();
@@ -103,16 +126,20 @@ public class SearchTabFragment extends Fragment {
 					JSONArray array=jobject.getJSONArray("result");
 
 					for (int i = 0; i < array.length(); i++) {
+
 						JSONObject object = array.getJSONObject(i);
 						Quotes data =
 								new Quotes(object.getString("fact"), object.getString("source"));
 						quotesList.add(data);
+
 						Log.i("Fetching...", "Quotes");
 					}
 
 				} catch (IOException e) {
+					Toast.makeText( getContext(),"Please Check Your Internet Connection and Try again...", Toast.LENGTH_LONG).show();
 					e.printStackTrace();
 				} catch (JSONException e) {
+					Toast.makeText( getContext(),"Please Check Your Internet Connection and Try again...", Toast.LENGTH_LONG).show();
 					e.printStackTrace();
 					System.out.println("No More Quotes");
 				}
@@ -130,10 +157,34 @@ public class SearchTabFragment extends Fragment {
 				recyclerView.setAdapter(adapter);
 
 				adapter.notifyDataSetChanged();
+
+				if (pDialog.isShowing()) {
+					pDialog.dismiss();
+				}
 			}
 		};
 		task.execute();
 
+	}
+
+
+	private void showDialog() {
+		if (!pDialog.isShowing())
+			pDialog.show();
+	}
+
+	private void hideDialog() {
+		if (pDialog.isShowing())
+			pDialog.dismiss();
+	}
+
+	private void HandleIOError(IOException e) {
+		Toast.makeText( getContext(),"Please Check Your Internet Connection and Try again...", Toast.LENGTH_LONG).show();
+
+	}
+
+	private void HandleNetworkError(JSONException e) {
+		Toast.makeText( getContext(),"Please Check Your Internet Connection and Try again...", Toast.LENGTH_LONG).show();
 	}
 
 }
